@@ -328,9 +328,9 @@ class RhythmRiftGame {
     this.pointer.copy(this.toNdc(clientX, clientY));
     this.raycaster.setFromCamera(this.pointer, this.camera);
     const hit = this.raycaster
-      .intersectObjects(this.objects.map((o) => o.mesh), false)
-      .map((i) => this.objects.find((o) => o.mesh === i.object))
-      .find((o): o is RhythmObject => Boolean(o) && !o.hit);
+  .intersectObjects(this.objects.map((o) => o.mesh), false)
+  .map((i: THREE.Intersection<THREE.Object3D>) => this.objects.find((o: RhythmObject) => o.mesh === i.object))
+  .find((o: RhythmObject | undefined): o is RhythmObject => Boolean(o) && !o.hit);
 
     if (!hit) return;
     if (hit.kind === 'good') {
