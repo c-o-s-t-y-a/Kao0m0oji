@@ -213,7 +213,7 @@ class RhythmRiftGame {
       this.tryTap(ev.clientX, ev.clientY);
     });
 
-    canvas.addEventListener('pointermove', (ev) => {
+    canvas.addEventListener('pointermove', (ev: PointerEvent) => {
       if ((ev.buttons & 1) === 0 && ev.pointerType !== 'touch') return;
       const p = this.toNdc(ev.clientX, ev.clientY);
       const now = performance.now();
