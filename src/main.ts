@@ -206,7 +206,7 @@ class RhythmRiftGame {
     });
 
     const canvas = this.renderer.domElement;
-    canvas.addEventListener('pointerdown', (ev) => {
+    canvas.addEventListener('pointerdown', (ev: PointerEvent) => {
       const p = this.toNdc(ev.clientX, ev.clientY);
       this.slashTrail.length = 0;
       this.slashTrail.push({ x: p.x, y: p.y, t: performance.now() });
