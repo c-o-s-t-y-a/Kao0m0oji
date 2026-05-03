@@ -330,7 +330,7 @@ class RhythmRiftGame {
     const hit = this.raycaster
   .intersectObjects(this.objects.map((o) => o.mesh), false)
   .map((i: THREE.Intersection<THREE.Object3D>) => this.objects.find((o: RhythmObject) => o.mesh === i.object))
-  .find((o: RhythmObject | undefined): o is RhythmObject => Boolean(o) && !o.hit);
+  .find((o: RhythmObject | undefined): o is RhythmObject => o !== undefined && !o.hit);
 
     if (!hit) return;
     if (hit.kind === 'good') {
